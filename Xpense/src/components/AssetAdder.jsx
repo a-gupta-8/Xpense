@@ -39,7 +39,7 @@ function AssetAdder({supabase, onClose}) {
     }
 
     return (
-        <div class="fixed flex flex-col w-[min(80vw,800px)] bg-mauve-200 flex items-center justify-center gap-8 top-40 border-4 border-mauve-500">
+        <div class="fixed flex flex-col w-[min(80vw,800px)] bg-mauve-200 flex items-center justify-center gap-8 top-40 border-4 border-mauve-500 z-10">
             <h2 class="flex w-full text-xl font-bold text-white bg-mauve-500 text-center h-12 justify-center items-center pb-1 font-mono" onClick={handleClose}>Add Asset</h2>
             <p class="text-mauve-500 font-mono">Institution</p>
             <select class="bg-mauve-200 text-black placeholder:text-gray-100 border border-mauve-500 focus:outline-none focus:ring-2 focus:ring-mauve-500 font-mono" value={selectedBank} onChange={(e) => setSelectedBank(e.target.value)}>

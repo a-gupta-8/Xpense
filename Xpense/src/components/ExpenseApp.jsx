@@ -1,5 +1,6 @@
 import Nav from './Nav.jsx';
 import AssetChart from './AssetChart.jsx';
+import ExpenseTrendChart from './ExpenseTrendChart.jsx';
 
 function ExpenseApp({ supabase }) {
 
@@ -7,6 +8,7 @@ function ExpenseApp({ supabase }) {
         <>
             <Nav supabase={supabase} />
             <AssetChart supabase={supabase} bank="BMO" />
+            <ExpenseTrendChart supabase={supabase} bank="BMO" />
         </>
 
     );

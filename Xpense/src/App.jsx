@@ -28,9 +28,9 @@ function App() {
     };
   }, []);
 
-  //if (!session) {
-  //  return <FirstTimeAuth supabase={supabase} />;
-  //}
+  if (!session) {
+    return <FirstTimeAuth supabase={supabase} />;
+  }
 
   return <ExpenseApp supabase={supabase} />;
 }

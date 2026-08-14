@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { LineChart } from '@mui/x-charts/LineChart';
 
-function ExpenseTrendChart({ supabase, bank }) {
+function ExpenseTrendChart({ supabase, refresh }) {
     const [monthlyExpenses, setMonthlyExpenses] = useState([]);
 
     useEffect(() => {
@@ -10,7 +10,7 @@ function ExpenseTrendChart({ supabase, bank }) {
 
             const startDate = new Date(
                 today.getFullYear(),
-                today.getMonth() - 2,
+                today.getMonth() - 5,
                 1
             );
 
@@ -29,7 +29,7 @@ function ExpenseTrendChart({ supabase, bank }) {
 
             const months = [];
 
-            for (let i = 2; i >= 0; i--) {
+            for (let i = 5; i >= 0; i--) {
                 const date = new Date(
                     today.getFullYear(),
                     today.getMonth() - i,
@@ -64,12 +64,12 @@ function ExpenseTrendChart({ supabase, bank }) {
         }
 
         getExpenses();
-    }, [supabase]);
+    }, [supabase, refresh]);
 
     return (
-        <div className="fixed ml-100 top-40 flex h-80 w-[min(80vw,500px)] flex-col items-center justify-center gap-1 border-4 border-mauve-500 bg-mauve-300">
+        <div className="top-40 flex h-80 w-[min(80vw,500px)] flex-col items-center justify-center gap-1 border-4 border-mauve-500 bg-mauve-300">
             <LineChart
-                width={500}
+                width={window.innerWidth < 768 ? window.innerWidth * 0.8 : 500}
                 height={300}
                 series={[
                     {
@@ -78,6 +78,7 @@ function ExpenseTrendChart({ supabase, bank }) {
                         ),
                         label: 'Expenses',
                         showMark: true,
+                        color: "#795F8A",
                     },
                 ]}
                 xAxis={[

@@ -21,7 +21,7 @@ function PieCenterLabel({ children }) {
     );
 }
 
-function AssetChart({ supabase, bank }) {
+function AssetChart({ supabase, refresh }) {
 
     const [assetData, setAssetData] = useState([]);
 
@@ -46,7 +46,7 @@ function AssetChart({ supabase, bank }) {
         }
 
         getAssets();
-    }, [supabase]);
+    }, [supabase, refresh]);
 
     const totalAssets = assetData.reduce(
         (total, asset) => total + asset.value,
@@ -54,7 +54,7 @@ function AssetChart({ supabase, bank }) {
     );
     
     return (
-        <div class="fixed flex flex-col w-[min(80vw,500px)] bg-mauve-300 flex items-center justify-center gap-1 top-40 border-4 h-80 border-mauve-500 z-0">
+        <div class="flex flex-col w-[min(80vw,500px)] bg-mauve-300 flex items-center justify-center gap-1 top-40 border-4 h-80 border-mauve-500 z-0">
             <p class="text-mauve-500 font-mono pt-5">Total Assets</p>
             <PieChart
             colors={[ '#4B2861', '#795F8A']} 

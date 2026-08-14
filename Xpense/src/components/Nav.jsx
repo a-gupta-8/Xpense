@@ -2,7 +2,7 @@ import { useState } from 'react'
 import AssetAdder from './AssetAdder.jsx';
 import ExpenseAdder from './ExpenseAdder.jsx';
 
-function Nav({ supabase }) {
+function Nav({ supabase, setRefreshCharts }) {
     const [assetAdder, setAssetAdder] = useState(false);
     const [expenseAdder, setExpenseAdder] = useState(false);
 
@@ -16,13 +16,17 @@ function Nav({ supabase }) {
             {assetAdder && (
                 <AssetAdder
                     supabase={supabase}
-                    onClose={() => setAssetAdder(false)} />
+                    onClose={() => setAssetAdder(false)}
+                    setRefreshCharts={setRefreshCharts}
+                />
             )}
 
             {expenseAdder && (
                 <ExpenseAdder
                     supabase={supabase}
-                    onClose={() => setExpenseAdder(false)} />
+                    onClose={() => setExpenseAdder(false)}
+                    setRefreshCharts={setRefreshCharts}
+                />
             )}
         </>
     );

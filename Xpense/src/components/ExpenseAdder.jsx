@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { addExpense } from "./Supabaser.js";
 
-function ExpenseAdder({supabase, onClose}) {
+function ExpenseAdder({supabase, onClose, setRefreshCharts}) {
 
     const [bankTypes, setBankTypes] = useState([]);
     const [categoryType, setCategoryType] = useState([]);
@@ -49,6 +49,9 @@ function ExpenseAdder({supabase, onClose}) {
             bank: expenseBank,
             date: expenseDate
         });
+
+
+        setRefreshCharts(prev => prev + 1);
 
         if (!result?.error) {
             onClose();

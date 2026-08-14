@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { addAsset } from "./Supabaser.js";
 
-function AssetAdder({supabase, onClose}) {
+function AssetAdder({supabase, onClose, setRefreshCharts}) {
 
     const [bankTypes, setBankTypes] = useState([]);
     const [amount, setAmount] = useState("");
@@ -26,12 +26,16 @@ function AssetAdder({supabase, onClose}) {
         const result = await addAsset({
             supabase,
             bank: selectedBank,
-            balance: parseFloat(amount)
+            amount: parseFloat(amount)
         });
+
+
+        setRefreshCharts(prev => prev + 1);
 
         if (!result?.error) {
             onClose();
         }
+
     }
 
     function handleClose() {

@@ -29,7 +29,7 @@ export async function addAsset({ supabase, bank, amount }) {
         return;
     }
 
-    console.log("Asset added:", data);
+    console.log("Asset added");
     return;
 }
 
@@ -66,7 +66,7 @@ export async function addExpense({ supabase, name, category, amount, bank, date 
     }
 
     const { data, error } = await supabase
-        .from("expense")
+        .from("expenses")
         .insert({
             name: name,
             category: category,

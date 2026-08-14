@@ -8,7 +8,7 @@ function Nav({ supabase, setRefreshCharts }) {
 
     return (
         <>
-           <div class="fixed w-full bg-mauve-400 flex items-center justify-center gap-15 p-4 top-0 border-4 border-mauve-500">
+           <div class="fixed w-full bg-mauve-400 flex items-center justify-center gap-15 p-4 top-0 border-4 border-mauve-500 z-20">
                 <button class="bg-mauve-500 hover:bg-mauve-700 text-white font-bold py-2 px-4 rounded font-mono" onClick={() => setAssetAdder(true)}>Add Asset</button>
                 <button class="bg-mauve-500 hover:bg-mauve-700 text-white font-bold py-2 px-4 rounded font-mono" onClick={() => setExpenseAdder(true)}>Add Expense</button>
             </div>
